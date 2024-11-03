@@ -1,6 +1,6 @@
 #!/bin/bash
-NAME=project name
-DIR=/project_path
+NAME=chat-be
+DIR=/home/ins-chat-be/htdocs/chat-be.ins.cx
 USER=root
 WORKERS=3
 WORKER_CLASS=uvicorn.workers.UvicornWorker
@@ -11,7 +11,7 @@ source $DIR/venv/bin/activate
 cd $DIR
 
 exec $DIR/venv/bin/gunicorn app.main:app \
-  --bind 0.0.0.0:8000 \
+  --bind 0.0.0.0:8090 \
   --name $NAME \
   --workers $WORKERS \
   --worker-class $WORKER_CLASS \

@@ -13,7 +13,7 @@ class Language(Base):
     @classmethod
     async def create(cls, includes:list, **data):
         async with async_session_maker() as session:
-            query = insert(cls).values(**data).returning(cls)
+            query = insert(cls).values(**data)
             res = await session.execute(query)
             await session.commit()
             DynamicModel = await get_dynamic_model()
